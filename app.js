@@ -235,6 +235,11 @@ app.get('/low-energy', (req, res) => {
   res.render('low-energy');
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello from swasthya-samvad!');
+});
+
+
 
 
 // -----------------------------
