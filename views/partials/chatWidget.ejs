@@ -1,0 +1,193 @@
+<!-- views/partials/chatWidget.ejs -->
+<style>
+    /* Chat widget styles */
+    #chatWidget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px; /* Positioned at bottom right */
+      width: 300px;
+      max-height: 800px; /* Increased height */
+      background: #c4e4ea; /* Light yellow background */
+      border: 3px solid #FFB000; /* Blue border */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(11, 3, 49, 0.1);
+      z-index: 10000;
+      display: none; /* Initially hidden */
+      flex-direction: column;
+    }
+    #chatWidgetHeader {
+      background: #260d5e; /* Blue header */
+      color: #fff;
+      padding: 5px 10px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #chatWidgetContent {
+      padding: 0;
+      flex-grow: 1;
+    }
+    #chatWidgetContent iframe {
+      width: 100%;
+      height: 400px; /* Adjust as needed */
+      border: none;
+    }
+    .chat-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .chat-btn:hover {
+      opacity: 0.8;
+    }
+    /* Modal for info */
+    #chatInfoModal {
+      position: fixed;
+      bottom: 540px; /* Appear above the widget */
+      right: 20px;
+      width: 300px;
+      max-height: 200px;
+      background: #fffbe1;
+      border: 1px solid #390441;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(68, 2, 2, 0.1);
+      z-index: 10001;
+      padding: 10px;
+      overflow-y: auto;
+      display: none;
+    }
+    #chatInfoModal h5 {
+      margin-top: 0;
+    }
+  </style>
+  
+  <div id="chatWidget">
+    <div id="chatWidgetHeader">
+      <span>MediMate Chat</span>
+      <div>
+        <!-- Info Button -->
+        <button class="chat-btn" onclick="toggleChatInfo()" title="Knowledge Sources">
+          <!-- Inline SVG for info icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 .877-.252 1.02-.598l.088-.416c.017-.077.027-.147.036-.217l.05-.25c.006-.03.009-.061.011-.092l.002-.038.002-.04.002-.04c.002-.036.002-.072.002-.108a.534.534 0 0 0-.002-.108l-.002-.04-.002-.04-.002-.038a.385.385 0 0 0-.011-.092l-.05-.25a.763.763 0 0 0-.036-.217l-.088-.416c-.143-.346-.475-.598-1.02-.598-.703 0-1.002.422-.808 1.319l.738 3.468c.064.293.006.399-.288.469l-.45.083-.082.38 2.29.287c.29.036.423-.127.423-.387V6.975c0-.26-.133-.423-.423-.387zM8 4.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+          </svg>
+        </button>
+        <!-- Minimize Button -->
+        <button class="chat-btn" onclick="minimizeChat()" title="Minimize">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8z"/>
+          </svg>
+        </button>
+        <!-- Close Button -->
+        <button class="chat-btn" onclick="closeChat()" title="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
+        <!-- Open in New Tab Button -->
+        <button class="chat-btn" onclick="openChatNewTab()" title="Open in New Tab">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M6.5 1a.5.5 0 0 1 0 1H3.707l8.147 8.146a.5.5 0 0 1-.708.708L3 2.707V5.5a.5.5 0 0 1-1 0v-4A.5.5 0 0 1 2.5 1h4z"/>
+            <path d="M10.5 8a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1 0-1h4v-3.5a.5.5 0 0 1 .5-.5z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="chatWidgetContent">
+      <iframe src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/31/13/20250131132130-9A3J5CQK.json" title="Chatbot"></iframe>
+    </div>
+  </div>
+  
+  <!-- Chat Info Modal (Placeholder for Books) -->
+  <div id="chatInfoModal">
+    <h5><strong>Knowledge Sources</strong></h5>
+    <ul style="text-align: left; padding-left: 20px; margin-bottom: 10px;">
+      <strong>General Medical References</strong>
+      <li>Harrison’s Principles of Internal Medicine</li>
+      <li>Davidson's Principles and Practice of Medicine</li>
+      <li>Oxford Handbook of Clinical Medicine</li>
+      <li>The Merck Manual of Diagnosis and Therapy</li>
+      <li>Current Medical Diagnosis and Treatment</li>
+      <li>Gray’s Anatomy</li>
+      <strong>First Aid & Emergency Care</strong>
+      <li>First Aid Manual (St. John Ambulance, Red Cross)</li>
+      <li>Tintinalli’s Emergency Medicine</li>
+      <li>Wilderness First Responder</li>
+      <li>First Aid for the USMLE Step 1</li>
+      <li>Emergency Medicine: The Principles of Practice</li>
+      <strong>Ayurvedic Medicine Books</strong>
+      <li>Charaka Samhita</li>
+      <li>Sushruta Samhita</li>
+      <li>Ashtanga Hridayam</li>
+      <li>The Complete Book of Ayurvedic Home Remedies</li>
+      <li>Ayurveda: The Science of Self-Healing</li>
+      <strong>Home Remedies & Herbal Healing</strong>
+      <li>The Lost Book of Herbal Remedies</li>
+      <li>The Herbal Drugstore</li>
+      <li>Home Doctor: Practical Medicine for Every Household</li>
+      <li>Indian Herbalogy of North America</li>
+      <li>The Encyclopedia of Medicinal Plants</li>
+      <strong>Drug Information & Pharmacology</strong>
+      <li>British National Formulary (BNF)</li>
+      <li>Goodman & Gilman’s: The Pharmacological Basis of Therapeutics</li>
+      <strong>Symptom & Diagnosis Guides</strong>
+      <li>Symptom to Diagnosis: An Evidence-Based Guide</li>
+      <li>CURRENT Medical Diagnosis & Treatment (Lange)</li>
+      <strong>Public Health & Lifestyle Medicine</strong>
+      <li>Why We Sleep – Matthew Walker </li>
+      <li>How Not to Die – Dr. Michael Greger </li>
+    </ul>
+    <div style="text-align: right;">
+      <button class="btn btn-secondary btn-sm" onclick="toggleChatInfo()">Close</button>
+    </div>
+  </div>
+  
+  <script>
+    // Open the chat widget
+    function openChat() {
+      document.getElementById('chatWidget').style.display = 'flex';
+    }
+  
+    // Close the chat widget
+    function closeChat() {
+      document.getElementById('chatWidget').style.display = 'none';
+    }
+  
+    // Minimize or restore the chat widget
+    function minimizeChat() {
+      var widget = document.getElementById('chatWidget');
+      var content = document.getElementById('chatWidgetContent');
+      if (widget.style.height !== '40px') {
+        widget.style.height = '40px';
+        content.style.display = 'none';
+      } else {
+        widget.style.height = '';
+        content.style.display = 'block';
+      }
+    }
+  
+    // Toggle display of the info modal
+    function toggleChatInfo() {
+      var modal = document.getElementById('chatInfoModal');
+      if (modal.style.display === 'none' || modal.style.display === '') {
+        modal.style.display = 'block';
+      } else {
+        modal.style.display = 'none';
+      }
+    }
+  
+    // Open the chatbot in a new browser tab
+    function openChatNewTab() {
+      window.open(
+        'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/31/13/20250131132130-9A3J5CQK.json',
+        '_blank'
+      );
+    }
+  </script>
+  

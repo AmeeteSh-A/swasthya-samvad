@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+<div class="container">
+  <h2>Emergency Guides</h2>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search guides...">
+  </div>
+  <div class="guide-list" id="guideList">
+    <% Object.keys(guides).forEach(key => { %>
+      <div class="guide-item" data-key="<%= key %>">
+        <%= key.replace(/-/g, ' ').toUpperCase() %>
+      </div>
+    <% }); %>
+  </div>
+  
+  <div id="guideContent" style="display: none;">
+    <button onclick="goBack()">Back</button>
+    <div id="content"></div>
+  </div>
+</div>
+
+<script>
+document.getElementById('searchInput').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  document.querySelectorAll('.guide-item').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('.guide-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const key = this.dataset.key;
+    document.getElementById('guideList').style.display = 'none';
+    document.getElementById('guideContent').style.display = 'block';
+    document.getElementById('content').textContent = '<%= guides[guideKey] %>'
+      .replace('guideKey', `'${key}'`);
+  });
+});
+
+function goBack() {
+  document.getElementById('guideList').style.display = 'block';
+  document.getElementById('guideContent').style.display = 'none';
+}
+</script>
+<%- include('../partials/footer') %>

@@ -1,0 +1,146 @@
+<%- include('../partials/header') %>
+<!-- Hide duplicate header title -->
+<style>
+  header h1 { display: none; }
+</style>
+<div class="container" style="max-width: 800px; margin: 50px auto; text-align: center;">
+  <!-- Centered Title in Black -->
+  <h1 style="font-size: 2.5rem; color: #000; margin-bottom: 20px;">Swasthya Samvad</h1>
+  
+  <!-- Card with Flex Layout (Left: Image Placeholder, Right: Sign Up Form) -->
+  <div class="card" style="display: flex; background: #FFF9E5; border: 1px solid #007BFF; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden;">
+    
+    <!-- Left Side: Image Placeholder -->
+    <div class="image-section" style="flex: 1; background: #E6F0FF; display: flex; align-items: center; justify-content: center;">
+      <!-- Replace '/images/placeholder.png' with your actual image file (place it in public/images/) -->
+      <img src="/images/sslogo.png" alt="Placeholder Image" style="max-width: 100%; height: auto;">
+    </div>
+    
+    <!-- Right Side: Sign Up Form -->
+    <div class="form-section" style="flex: 1; padding: 30px; text-align: left;">
+      <h2 style="margin-bottom: 20px; color: #000;">Sign Up</h2>
+      <% if (typeof error !== 'undefined') { %>
+        <div class="alert" style="color: #d9534f; margin-bottom: 15px; text-align: center;"><%= error %></div>
+      <% } %>
+      <form id="signupForm" action="/auth/signup" method="POST">
+        <!-- New Name Field -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="text" name="name" placeholder="Name" required
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="email" name="email" placeholder="Email" required
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="password" name="password" placeholder="Password" required
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <select name="role" id="role" required
+                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="">Select Role</option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+          </select>
+        </div>
+        
+        <!-- Doctor-Specific Fields (Hidden by Default, Initially Disabled) -->
+        <div id="doctor-fields" style="display: none; margin-top: 20px;">
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="specialty" style="display: block; margin-bottom: 5px;">Specialty</label>
+            <select name="specialty" id="specialty" disabled
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+              <option value="">Select Specialty</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Gynecology">Gynecology</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Ophthalmology">Ophthalmology</option>
+              <option value="Oncology">Oncology</option>
+              <option value="Psychiatry">Psychiatry</option>
+              <option value="General Surgery">General Surgery</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="license" style="display: block; margin-bottom: 5px;">Medical License Number</label>
+            <input type="text" name="license" id="license" placeholder="License Number" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="experience" style="display: block; margin-bottom: 5px;">Years of Experience</label>
+            <input type="number" name="experience" id="experience" placeholder="Years of Experience" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="clinicName" style="display: block; margin-bottom: 5px;">Clinic Name</label>
+            <input type="text" name="clinicName" id="clinicName" placeholder="Clinic Name" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="clinicAddress" style="display: block; margin-bottom: 5px;">Clinic Address</label>
+            <input type="text" name="clinicAddress" id="clinicAddress" placeholder="Clinic Address" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="contactNumber" style="display: block; margin-bottom: 5px;">Contact Number</label>
+            <input type="tel" name="contactNumber" id="contactNumber" placeholder="Contact Number" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="consultationFee" style="display: block; margin-bottom: 5px;">Consultation Fee</label>
+            <input type="number" name="consultationFee" id="consultationFee" placeholder="Consultation Fee" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="workingHours" style="display: block; margin-bottom: 5px;">Working Hours</label>
+            <input type="text" name="workingHours" id="workingHours" placeholder="e.g. 9 AM - 5 PM" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="qualifications" style="display: block; margin-bottom: 5px;">Qualifications</label>
+            <textarea name="qualifications" id="qualifications" placeholder="Enter your qualifications" disabled
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="languages" style="display: block; margin-bottom: 5px;">Languages Spoken</label>
+            <input type="text" name="languages" id="languages" placeholder="e.g. English, Spanish" disabled
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+        </div>
+        
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #007BFF; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+          Sign Up
+        </button>
+      </form>
+      <p style="text-align: center; margin-top: 15px;">Already have an account? <a href="/auth/signin" style="color: #007BFF;">Sign In</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('role').addEventListener('change', (e) => {
+    const doctorFields = document.getElementById('doctor-fields');
+    const inputs = doctorFields.querySelectorAll('input, select, textarea');
+    if (e.target.value === 'doctor') {
+      doctorFields.style.display = 'block';
+      inputs.forEach(input => {
+         input.removeAttribute('disabled');
+         input.setAttribute('required', '');
+      });
+    } else {
+      doctorFields.style.display = 'none';
+      inputs.forEach(input => {
+         input.setAttribute('disabled', 'disabled');
+         input.removeAttribute('required');
+      });
+    }
+  });
+
+  // Debug: Log form submission event to the console
+  document.getElementById('signupForm').addEventListener('submit', function(event) {
+    console.log("Signup form submitted.");
+  });
+</script>

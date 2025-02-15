@@ -1,0 +1,540 @@
+<%- include('partials/header') %>
+
+<div class="container" style="margin-top: 100px;">
+  <h2 class="mb-4">Health Guide Articles</h2>
+  
+  <!-- Search Bar with Button -->
+  <div class="input-group mb-3">
+    <input type="text" id="searchBar" class="form-control" placeholder="Search articles..." />
+    <button class="btn btn-outline-secondary" type="button" onclick="filterArticles()">Search</button>
+  </div>
+  
+  <!-- Article 1: Immediate Cardiac Arrest / Heart-Attack Action Plan (Odd) -->
+  <a href="/cardiac-arrest" class="article-item text-decoration-none" data-title="Article 1: Immediate Cardiac Arrest / Heart-Attack Action Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Immediate Cardiac Arrest / Heart-Attack Action Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">hert, attak, ambulance, CPR, Stroke</span>
+            </h4>
+            <p class="card-text">
+              Immediate cardiac arrest is marked by heart stoppage, sudden collapse, and loss of consciousness with no pulse. Urgent help required.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (20).png" alt="Cardiac Arrest" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 2: Emergency Labor / Pregnancy Support Action Plan (Even) -->
+  <a href="/pregnant-labor" class="article-item text-decoration-none" data-title="Article 2: Emergency Labor Support Action Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (19).png" alt="Pregnant Labor" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Emergency Labor / Pregnancy Support Action Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">baby, doctor, delivery, pragnency, pain, childbirth</span>
+            </h4>
+            <p class="card-text">
+              Emergency labor involves unpredictable contractions with severe pain. Common symptoms include intense cramping and a rapid heartbeat. Immediate help needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 3: Immediate Snake Bite First Aid Protocol (Odd) -->
+  <a href="/snake-bites" class="article-item text-decoration-none" data-title="Article 3: Immediate Snake Bite First Aid Protocol">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Immediate Snake Bite First Aid Protocol
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">snakebite, firstaid, venom, poison, antidote</span>
+            </h4>
+            <p class="card-text">
+              Snake bites cause localized pain and swelling, with dizziness and nausea as common symptoms. Immediate first aid is critical.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (18).png" alt="Snake Bite First Aid" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 4: Choking Incident Response Guide (Even) -->
+  <a href="/choking-incident" class="article-item text-decoration-none" data-title="Article 4: Choking Incident Response Guide">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (17).png" alt="Choking Incident" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Choking Incident Response Guide
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">breath, airway, rescue, Heimlich, cough</span>
+            </h4>
+            <p class="card-text">
+              Choking causes breathing difficulties with coughing and gasping. Immediate, swift intervention is essential to save lives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 5: Seizure Emergency Response Plan (Odd) -->
+  <a href="/seizure" class="article-item text-decoration-none" data-title="Article 5: Seizure Emergency Response Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Seizure Emergency Response Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">foam, epilepsy, convulsion, unconcious, shake</span>
+            </h4>
+            <p class="card-text">
+              Seizures cause involuntary convulsions and confusion, with jerking movements and disorientation. Immediate safety measures are critical.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (16).png" alt="Seizure Response" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 6: Severe Allergy / Anaphylaxis Emergency Response Plan (Even) -->
+  <a href="/allergic-reaction" class="article-item text-decoration-none" data-title="Article 6: Severe Allergy / Anaphylaxis Emergency Response Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (15).png" alt="Anaphylaxis" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Severe Allergy / Anaphylaxis Emergency Response Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">epinephrine, rashes, redness, reaction</span>
+            </h4>
+            <p class="card-text">
+              Anaphylaxis causes sudden swelling and breathing difficulty, with hives and throat tightness. Rapid epinephrine administration is vital.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 7: Severe Bleeding Control Action Plan (Odd) -->
+  <a href="/severe-bleeding" class="article-item text-decoration-none" data-title="Article 7: Severe Bleeding Control Action Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Severe Bleeding Control Action Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">blood, blud, hemorrhage, control, pressure, bandage, bandaid</span>
+            </h4>
+            <p class="card-text">
+              Severe bleeding causes rapid blood loss and shock; signs include visible blood loss and weakness. Pressure and elevation are required.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (14).png" alt="Severe Bleeding" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 8: Stroke Emergency Response Protocol (Even) -->
+  <a href="/stroke-response" class="article-item text-decoration-none" data-title="Article 8: Stroke Emergency Response Protocol">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (13).png" alt="Stroke Response" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Stroke Emergency Response Protocol
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">paralysis, brain, emergency, Hemorrhage, unconciousness</span>
+            </h4>
+            <p class="card-text">
+              A stroke disrupts brain function; symptoms include numbness and difficulty speaking. Immediate intervention minimizes damage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 9: Drowning Rescue Action Guide (Odd) -->
+  <a href="/drowning" class="article-item text-decoration-none" data-title="Article 9: Drowning Rescue Action Guide">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Drowning Rescue Action Guide
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">water, lifeguard, emergency, breathe, CPR</span>
+            </h4>
+            <p class="card-text">
+              Drowning leads to oxygen deprivation, with gasping and blue lips. Immediate rescue and CPR are essential without delay.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (12).png" alt="Drowning Rescue" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 10: Extreme Temperature Emergency Response Plan (Even) -->
+  <a href="/heatstroke" class="article-item text-decoration-none" data-title="Article 10: Extreme Temperature Emergency Response Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (11).png" alt="Heatstroke/Hypothermia" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Extreme Temperature Emergency Response Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">shivering, frostbite, temperature, sweating, cooling, sunburn</span>
+            </h4>
+            <p class="card-text">
+              Extreme temperatures cause heatstroke or hypothermia, with confusion and dizziness. Urgent cooling or warming measures are necessary.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 11: Natural Sore Throat Relief Plan (Odd) -->
+  <a href="/sore-throat" class="article-item text-decoration-none" data-title="Article 11: Natural Sore Throat Relief Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Natural Sore Throat Relief Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">sorethroat, infection, herbal, cough, relief</span>
+            </h4>
+            <p class="card-text">
+              A sore throat causes pain and scratchiness, with difficulty swallowing. Home remedies provide soothing, effective relief.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (10).png" alt="Sore Throat Remedies" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 12: Chronic Indigestion Relief Guide (Even) -->
+  <a href="/upset-stomach" class="article-item text-decoration-none" data-title="Article 12: Chronic Indigestion Relief Guide">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (9).png" alt="Indigestion Remedies" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Chronic Indigestion Relief Guide
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">digestion, acidity, bloating, burping, upset</span>
+            </h4>
+            <p class="card-text">
+              Chronic indigestion leads to stomach discomfort and bloating, with pain and nausea. Dietary changes and teas offer relief.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 13: Insomnia and Sleep Improvement Strategy (Odd) -->
+  <a href="/insomnia" class="article-item text-decoration-none" data-title="Article 13: Insomnia and Sleep Improvement Strategy">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Insomnia and Sleep Improvement Strategy
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">sleep, rest, restless, anxiety, relaxation</span>
+            </h4>
+            <p class="card-text">
+              Insomnia causes restless nights and fatigue, with difficulty falling asleep. Improved sleep hygiene enhances rest.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (8).png" alt="Insomnia Remedies" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 14: Frequent Headache Relief Plan (Even) -->
+  <a href="/headaches" class="article-item text-decoration-none" data-title="Article 14: Frequent Headache Relief Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (7).png" alt="Headache Relief" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Frequent Headache Relief Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">pain, migraine, dizzy, throbbing, stress</span>
+            </h4>
+            <p class="card-text">
+              Frequent headaches cause throbbing pain and light sensitivity, with pressure and nausea. Natural remedies ease discomfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 15: Anxiety and Panic Attack Management Guide (Odd) -->
+  <a href="/anxiety-panic" class="article-item text-decoration-none" data-title="Article 15: Anxiety and Panic Attack Management Guide">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Anxiety and Panic Attack Management Guide
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">nervous, panic, stress, calm, heartbeat</span>
+            </h4>
+            <p class="card-text">
+              Anxiety causes intense fear and a rapid heartbeat, with trembling and shortness of breath. Calming techniques ease them.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (6).png" alt="Anxiety Management" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 16: Daily Immune Boosting Strategy (Even) -->
+  <a href="/boost-immune" class="article-item text-decoration-none" data-title="Article 16: Daily Immune Boosting Strategy">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (5).png" alt="Immune Boost" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Daily Immune Boosting Strategy
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">vaccine, boost, health, natural, Ayurveda</span>
+            </h4>
+            <p class="card-text">
+              Weak immunity causes frequent colds and fatigue. Daily natural practices can improve overall resistance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 17: Muscle Cramps and Body Aches Relief Plan (Odd) -->
+  <a href="/muscle-cramps" class="article-item text-decoration-none" data-title="Article 17: Muscle Cramps and Body Aches Relief Plan">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Muscle Cramps and Body Aches Relief Plan
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">pain, tightness, ache, relief, natural</span>
+            </h4>
+            <p class="card-text">
+              Muscle cramps cause pain and stiffness. Common symptoms include sharp pain and limited movement. Relief is needed.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (4).png" alt="Muscle Cramps Relief" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 18: Eye Strain Relief and Prevention Guide (Even) -->
+  <a href="/eye-strain" class="article-item text-decoration-none" data-title="Article 18: Eye Strain Relief and Prevention Guide">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (3).png" alt="Eye Strain Relief" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Eye Strain Relief and Prevention Guide
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">blurred, screen, dryness, wetness, headache</span>
+            </h4>
+            <p class="card-text">
+              Excessive screen time causes eye strain, with blurry vision and fatigue. Adjusting settings can ease discomfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 19: Sudden Hair Loss: Causes and Remedies (Odd) -->
+  <a href="/hair-loss" class="article-item text-decoration-none" data-title="Article 19: Sudden Hair Loss: Causes and Remedies">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Sudden Hair Loss: Causes and Remedies
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">dandruff, bald, shedding, alopecia, treatment, scalp</span>
+            </h4>
+            <p class="card-text">
+              Sudden hair loss from stress and hormonal imbalance leads to thinning and shedding. Natural remedies help.
+            </p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (2).png" alt="Hair Loss Remedies" class="img-fluid rounded-end" style="max-width:150px;">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <!-- Article 20: Chronic Fatigue Relief Strategy (Even) -->
+  <a href="/low-energy" class="article-item text-decoration-none" data-title="Article 20: Chronic Fatigue Relief Strategy">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Image Column -->
+        <div class="col-md-4">
+          <img src="/assets/img/articleAsset (1).png" alt="Fatigue Relief" class="img-fluid rounded-start" style="max-width:150px;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title">
+              Chronic Fatigue Relief Strategy
+              <span class="keywords" style="font-size: 0.5rem; color: #ffffff;">tired, energy, drowsy, exhasted, weakness</span>
+            </h4>
+            <p class="card-text">
+              Chronic fatigue from poor sleep and stress causes low energy and tiredness. Lifestyle changes are essential now.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+</div>
+
+<style>
+  /* Add a dim grey bottom border to each article-item */
+  .article-item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<script>
+  // Ensure the DOM is fully loaded before adding event listeners
+  document.addEventListener("DOMContentLoaded", function() {
+    var searchBar = document.getElementById('searchBar');
+    if (searchBar) {
+      searchBar.addEventListener('keyup', filterArticles);
+    } else {
+      console.error("Search bar not found!");
+    }
+  });
+
+  function filterArticles() {
+    var input = document.getElementById('searchBar');
+    var filter = input.value.toLowerCase();
+    console.log("Filtering articles with filter: " + filter);
+    var articles = document.querySelectorAll('.article-item');
+    articles.forEach(function(article) {
+      // Get the text from the .card-title (including hidden keywords) and .card-text
+      var titleElement = article.querySelector('.card-title');
+      var descriptionElement = article.querySelector('.card-text');
+      var titleText = titleElement ? titleElement.innerText : "";
+      var descriptionText = descriptionElement ? descriptionElement.innerText : "";
+      // Combine the texts for search
+      var combinedText = titleText + " " + descriptionText;
+      
+      if (combinedText.toLowerCase().includes(filter)) {
+        article.style.display = "block";
+      } else {
+        article.style.display = "none";
+      }
+      console.log("Combined text: " + combinedText + " -> display set to: " + article.style.display);
+    });
+  }
+</script>
+
+
+
+<%- include('partials/footer') %>

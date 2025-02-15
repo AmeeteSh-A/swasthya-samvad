@@ -1,0 +1,116 @@
+<footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
+    <div class="container">
+      <div class="btn-group" role="group" aria-label="Footer Actions">
+        <!-- Text-to-Speech Button -->
+        <button id="ttsBtn" type="button" class="btn btn-primary">Text to Speech</button>
+      </div>
+      <!-- Google Translate Widget Container -->
+      <div id="google_translate_element" style="margin-top: 10px;"></div>
+      <p style="margin-top: 10px; font-size: 0.9rem;">&copy; 2025 Swasthya Samvad</p>
+    </div>
+    
+    <!-- Custom CSS to style the Google Translate widget -->
+    <style>
+      /* Hide Google Translate logo elements */
+      .goog-logo-link {
+        display: none !important;
+      }
+      /* Style the inline translate gadget with navy blue background */
+      .goog-te-gadget-simple {
+        background-color: #260d5e !important; /* Navy blue */
+        color: #fff !important;
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 5px !important;
+        font-size: 14px !important;
+      }
+      .goog-te-gadget-simple span {
+        color: #fff !important;
+        font-size: 14px !important;
+      }
+      /* Hide the Google Translate banner */
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+      }
+    </style>
+    
+    <!-- Google Translate Scripts -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          // Limit the widget to the desired languages (comma-separated ISO codes)
+          includedLanguages: 'en,hi,bn,te,ta,mr,kn,gu,pa,ml',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <script>
+      // Enhanced Text-to-Speech functionality with soothing female voice
+      function performTextToSpeech() {
+  var selectedText = window.getSelection().toString().trim();
+  var utteranceText = selectedText || document.body.innerText;
+  var utterance = new SpeechSynthesisUtterance(utteranceText);
+
+  // Get available voices (may be empty initially)
+  var voices = speechSynthesis.getVoices();
+  console.log("Available voices:", voices);
+
+  // List of candidate female voice names (modify as needed)
+  const candidateVoices = [
+    "Google UK English Female", // Common on Chrome on some systems
+    "Samantha",                 // Common on macOS
+    "Karen",                    // Often available on Windows as a female voice
+    "Microsoft Zira Desktop"    // Windows 10/11 often provides this
+  ];
+
+  // Try to pick a voice that matches one of our candidate names
+  var selectedVoice = voices.find(function(v) {
+    return candidateVoices.includes(v.name);
+  });
+
+  // If not found, fallback to any voice whose name contains 'female' (case-insensitive)
+  if (!selectedVoice) {
+    selectedVoice = voices.find(function(v) {
+      return v.name.toLowerCase().includes("female");
+    });
+  }
+
+  // Log the chosen voice for debugging
+  console.log("Selected voice:", selectedVoice);
+
+  if (selectedVoice) {
+    utterance.voice = selectedVoice;
+  }
+  
+  // Optionally adjust pitch and rate
+  utterance.rate = 1;
+  utterance.pitch = 1;
+  
+  speechSynthesis.speak(utterance);
+}
+
+      
+      // Wait for voices to be loaded before attaching event listener
+      function initTTS() {
+        if (speechSynthesis.getVoices().length !== 0) {
+          document.getElementById('ttsBtn').addEventListener('click', performTextToSpeech);
+        } else {
+          // Voices might not be loaded immediately; try again shortly
+          setTimeout(initTTS, 100);
+        }
+      }
+      initTTS();
+    </script>
+  </footer>
+  
+  <%- include('chatWidget') %>
+  </body>
+  </html>
+  

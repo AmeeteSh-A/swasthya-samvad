@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<div class="container">
+  <h2>AI Chatbot</h2>
+  <button onclick="toggleChat()" class="btn">Open Chatbot</button>
+  <button onclick="openChatInNewTab()" class="btn">Open in New Tab</button>
+  
+  <!-- Botpress Webchat -->
+  <div id="webchat" style="display: none;">
+    <iframe 
+      src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/31/13/20250131132130-9A3J5CQK.json"
+      style="width: 100%; height: 500px; border: none;"
+    ></iframe>
+  </div>
+</div>
+
+<script>
+  function toggleChat() {
+    const webchat = document.getElementById('webchat');
+    webchat.style.display = webchat.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function openChatInNewTab() {
+    window.open(
+      'https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/01/31/13/20250131132130-9A3J5CQK.json',
+      '_blank'
+    );
+  }
+</script>
+<%- include('../partials/footer') %>

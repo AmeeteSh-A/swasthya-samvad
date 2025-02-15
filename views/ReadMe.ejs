@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pricing - Brand</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=91180125d193e45e653b99b7314045c4">
+    <link rel="stylesheet" href="/assets/css/Raleway.css?h=08e4d94f53865a6d396fee1a3610b3d9">
+    <link rel="stylesheet" href="/assets/css/animate.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container">
+          <img width="94" height="88" src="/assets/img/DALL_E_2025-01-25_17.03.24.jpeg-removebg-preview.png?h=59b0c534249d7fb36b1a2d195d5b33b4">
+          <a class="navbar-brand d-flex align-items-center" href="/">
+            <span>Swasthya<br>&nbsp;Samvad</span>
+          </a>
+          <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+            <span class="visually-hidden">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/features">Features</a></li>
+              <li class="nav-item"><a class="nav-link active" href="/readme">ReadMe</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contacts">Contact Us</a></li>
+            </ul>
+            <% if (typeof user !== 'undefined' && user) { %>
+              <a class="btn btn-primary shadow" role="button" href="/auth/signout">Sign Out</a>
+            <% } else { %>
+              <a class="btn btn-primary shadow" role="button" href="/auth/signup">Sign up</a>
+            <% } %>
+          </div>
+        </div>
+      </nav>
+    <section class="py-5 mt-5">
+        <div class="container py-4 py-xl-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 col-xxl-12 text-center mx-auto">
+                    <p class="text-muted"><br><strong>Swasthya Samvad</strong><br><strong>Overview</strong><br>Swasthya Samvad is a digital healthcare platform designed to bridge the gap between rural communities and quality healthcare. It enables users to consult with doctors via secure video calls, access personalized healthcare advice through an AI-powered chatbot, and receive guidance on emergency medical situations. With multilingual support and accessibility features, the platform ensures inclusivity for all, including illiterate and visually impaired users.<br><strong>Problem Statement</strong><br>Access to quality healthcare in rural areas remains a significant challenge due to limited medical facilities and a lack of timely consultations. The absence of easily available natural wellness solutions further exacerbates health challenges. Swasthya Samvad addresses these issues by offering real-time online doctor consultations, AI-driven health guidance, and a verified knowledge base for immediate relief in critical situations.<br><strong>Key Features</strong><br>1. <strong>Real-Time Doctor Consultations</strong><br>Secure video calls with certified doctors.<br>Patients can choose a specialist based on their needs.<br>Digital prescriptions provided after consultations.<br><br>2. <strong>AI-Powered Health Chatbot (MediMate)</strong><br>Provides health tips and home remedies.<br>Includes Ayurvedic treatment suggestions.<br>Can answer non-medical queries to a limited extent.<br><br>3. <strong>Guided Medical Knowledge Base</strong><br>Verified articles on home remedies for common illnesses.<br>Emergency guidance for situations like pregnancy complications or cardiac arrests.<br>Offline availability for remote access.<br><br>4. <strong>Accessibility Features</strong><br>Speech-to-text and text-to-speech for visually and verbally impaired users.<br>Multilingual support for overcoming language barriers.<br><br><strong>Technical Stack</strong><br><strong>Frontend:</strong> HTML, CSS, JavaScript.<br><strong>Backend:</strong> Python (Flask/Django), Node.js (Express.js).<br><strong>AI &amp; NLP:</strong> TensorFlow/PyTorch, OpenAI GPT, Google Cloud Speech-to-Text.<br><strong>Database:</strong> MongoDB/Firebase.<br><strong>Video Call Integration:</strong> WebRTC/Twilio.<br><strong>Multilingual Support:</strong> Google Translate/Microsoft Translator API.<br><br><strong>Challenges &amp; Solutions</strong><br><strong>User Adoption:</strong> Easy-to-use interface with tutorials in multiple languages. (still in development)<br><strong>AI Accuracy:</strong> Regular updates and validation from medical professionals.<br><br><strong>Impact &amp; Benefits</strong><br><strong>Bridging Healthcare Gaps:</strong> Provides affordable and accessible healthcare to rural populations.<br><strong>Promoting Ayurveda:</strong> Encourages holistic health solutions alongside modern medicine.<br><strong>Conclusion</strong><br>Swasthya Samvad is more than just a telemedicine platform—it is a comprehensive healthcare solution designed for accessibility, inclusivity, and affordability. By integrating real-time consultations, AI-powered assistance, and multilingual accessibility, it ensures that quality healthcare is available to all, regardless of location or literacy level.<br><br></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
+                <div class="pb-2 pb-lg-1">
+                    <h2 class="fw-bold text-warning mb-2">Have a feedback/suggestion? We hear you!</h2>
+                    <p class="mb-0">Reach out to us and we will try our level best to get back ASAP!</p>
+                </div>
+                <div class="my-2">
+                    <a class="btn btn-light fs-5 py-2 px-4" role="button" href="/contacts">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <hr>
+            <p class="text-muted mb-5"><br>🏥 <strong>Powered by Innovation, Rooted in Care</strong><br>📧 <strong>Email:</strong> swasthya.samvad.demo@gmail.com | 📞 <strong>Helpline:</strong> +91-XXXXXXXXXX<br>© 2025 Swasthya Samvad.<br><br></p>
+        </div>
+    </footer>
+    <script src="/assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script>
+    <script src="/assets/js/bs-init.js?h=ec5d4df3c798a2943b2ecbac76ebfde0"></script>
+    <script src="/assets/js/startup-modern.js?h=860a1ecddc64fd24c02f2fc109343dbd"></script>
+    <%- include('partials/footer') %>
+  </body>
+
+</html>

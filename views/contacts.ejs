@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contacts - Brand</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=91180125d193e45e653b99b7314045c4">
+    <link rel="stylesheet" href="/assets/css/Raleway.css?h=08e4d94f53865a6d396fee1a3610b3d9">
+    <link rel="stylesheet" href="/assets/css/animate.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container">
+          <img width="94" height="88" src="/assets/img/DALL_E_2025-01-25_17.03.24.jpeg-removebg-preview.png?h=59b0c534249d7fb36b1a2d195d5b33b4">
+          <a class="navbar-brand d-flex align-items-center" href="/">
+            <span>Swasthya<br>&nbsp;Samvad</span>
+          </a>
+          <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+            <span class="visually-hidden">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/features">Features</a></li>
+              <li class="nav-item"><a class="nav-link" href="/readme">ReadMe</a></li>
+              <li class="nav-item"><a class="nav-link active" href="/contacts">Contact Us</a></li>
+            </ul>
+            <% if (typeof user !== 'undefined' && user) { %>
+              <a class="btn btn-primary shadow" role="button" href="/auth/signout">Sign Out</a>
+            <% } else { %>
+              <a class="btn btn-primary shadow" role="button" href="/auth/signup">Sign up</a>
+            <% } %>
+          </div>
+        </div>
+    </nav>
+      
+    <section class="py-5 mt-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-6 fw-bold mb-4">Got any <span class="underline">questions</span>?</h2>
+                    <p class="text-muted">Our team is always here to help. Send us a message and we'll get back to you shortly.</p>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div>
+                        <!-- The form now submits to the "/contacts" POST route -->
+                        <form class="p-3 p-xl-4" action="/contacts" method="post" data-bs-theme="light">
+                            <div class="mb-3">
+                                <input class="shadow form-control" type="text" id="name-1" name="name" placeholder="Name">
+                            </div>
+                            <div class="mb-3">
+                                <input class="shadow form-control" type="email" id="email-1" name="email" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="shadow form-control" id="message-1" name="message" rows="6" placeholder="Message"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary shadow d-block w-100" type="submit">Send</button>
+                            </div>
+                        </form>
+                        <!-- Success Message -->
+                        <% if (success === "true") { %>
+                          <div class="alert alert-success mt-3" role="alert">
+                            Contact information submitted, we will get back to you ASAP!
+                          </div>
+                        <% } %>
+                        <!-- Error Message -->
+                        <% if (error === "true") { %>
+                          <div class="alert alert-danger mt-3" role="alert">
+                            There was an error submitting your contact information. Please try again.
+                          </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <hr>
+            <p class="text-muted mb-5">
+              <br>🏥 <strong>Powered by Innovation, Rooted in Care</strong>
+              <br>📧 <strong>Email:</strong> swasthya.samvad.demo@gmail.com | 
+              📞 <strong>Helpline:</strong> +91-XXXXXXXXXX
+              <br>© 2025 Swasthya Samvad.
+              <br><br>
+            </p>
+        </div>
+    </footer>
+    <script src="/assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script>
+    <script src="/assets/js/bs-init.js?h=ec5d4df3c798a2943b2ecbac76ebfde0"></script>
+    <script src="/assets/js/startup-modern.js?h=860a1ecddc64fd24c02f2fc109343dbd"></script>
+    <%- include('partials/footer') %>
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "swasthya-samvad",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google-cloud/dialogflow": "^6.14.0",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "nodemailer": "^6.10.0",
+    "sequelize": "^6.37.5",
+    "socket.io": "^4.8.1",
+    "sqlite3": "^5.1.7"
+  }
+}

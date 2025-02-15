@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+<!-- Hide the header's title so that only the sign-in page title appears -->
+<style>
+  header h1 { display: none; }
+</style>
+<div class="container" style="max-width: 800px; margin: 50px auto; text-align: center;">
+  <!-- Title centered at the top in black -->
+  <h1 style="font-size: 2.5rem; color: #000; margin-bottom: 20px;">Swasthya Samvad</h1>
+  
+  <!-- Card with a flex layout for image and form -->
+  <div class="card" style="display: flex; background: #FFF9E5; border: 1px solid #007BFF; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden;">
+    
+    <!-- Left Side: Image Placeholder -->
+    <div class="image-section" style="flex: 1; background: #E6F0FF; display: flex; align-items: center; justify-content: center;">
+      <!-- Replace '/images/placeholder.png' with your actual image file (place it in public/images/) -->
+      <img src="/images/sslogo.png" alt="Your image here" style="max-width: 100%; height: auto;">
+    </div>
+    
+    <!-- Right Side: Sign In Form -->
+    <div class="form-section" style="flex: 1; padding: 30px;">
+      <h2 style="margin-bottom: 20px; color: #000;">Sign In</h2>
+      <% if (typeof error !== 'undefined') { %>
+        <div class="alert" style="color: #d9534f; text-align: center; margin-bottom: 15px;">
+          <%= error %>
+        </div>
+      <% } %>
+      <form action="/auth/signin" method="POST">
+        <!-- New Name Field -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="text" name="name" placeholder="Name" required
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="email" name="email" placeholder="Email" required
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="password" name="password" placeholder="Password" required
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #007BFF; color: #fff; border: none; border-radius: 4px;">
+          Sign In
+        </button>
+      </form>
+      <p style="text-align: center; margin-top: 15px;">
+        Don't have an account? <a href="/auth/signup" style="color: #007BFF;">Sign Up</a>
+      </p>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<div class="container" style="margin-top: 100px;">
+  <h2>Consultation</h2>
+  <div id="callContainer">
+    <iframe src="<%= consultation.roomUrl %>" 
+            style="width: 100%; height: 500px; border: none"
+            allow="camera; microphone; fullscreen"></iframe>
+  </div>
+  <p id="callStatus">Call in progress...</p>
+  <div id="downloadSection" class="mt-3">
+    <!-- Always visible Download Prescription button -->
+    <a id="downloadBtn" href="/patient/consultation/<%= consultation.id %>/prescription" class="btn btn-secondary">
+      Download Prescription
+    </a>
+    <p id="downloadMsg" class="text-muted mt-2">Prescription will be available once the doctor sends it.</p>
+  </div>
+</div>
+
+<script>
+  // Function to poll the consultation status and update the download button
+  function checkPrescription() {
+    fetch('/patient/consultation/<%= consultation.id %>/status')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Consultation status:', data);
+        if (data.status === 'completed') {
+          document.getElementById('callStatus').innerText = 'The consultation has ended.';
+          if (data.prescription) {
+            // If prescription exists, update the download button to be active
+            var btn = document.getElementById('downloadBtn');
+            btn.classList.remove('btn-secondary');
+            btn.classList.add('btn-primary');
+            btn.href = '/patient/consultation/<%= consultation.id %>/prescription';
+            document.getElementById('downloadMsg').innerText = '';
+          } else {
+            // No prescription available yet
+            var btn = document.getElementById('downloadBtn');
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-secondary');
+            btn.href = '#';
+            document.getElementById('downloadMsg').innerText = 'No prescription provided yet.';
+          }
+        } else {
+          document.getElementById('callStatus').innerText = 'Call in progress...';
+        }
+      })
+      .catch(err => {
+        console.error('Error checking prescription:', err);
+      });
+  }
+  
+  // Poll every 5 seconds
+  setInterval(checkPrescription, 5000);
+</script>
+
+<%- include('../partials/footer') %>

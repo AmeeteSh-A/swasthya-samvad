@@ -1,0 +1,44 @@
+/* Chatbot Styles */
+#webchat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Consultation Styles */
+#status {
+  padding: 15px;
+  margin: 20px 0;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0056b3;
+}

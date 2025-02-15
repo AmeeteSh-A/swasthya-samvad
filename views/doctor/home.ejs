@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<div class="container" style="max-width: 600px; margin-top: 100px;">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4" style="color: #260d5e;">Pending Consultations</h2>
+      
+      <% 
+        // Helper function to generate a random 5-character alphanumeric string
+        function randomId(length) {
+          var result = '';
+          var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+          for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+          }
+          return result;
+        }
+      %>
+      
+      <% if (pendingConsultations && pendingConsultations.length) { %>
+        <% pendingConsultations.forEach(function(consultation) { %>
+          <div class="border rounded p-3 mb-3">
+            <p>
+              <strong>Specialty:</strong>
+              <%= consultation.specialty.charAt(0).toUpperCase() + consultation.specialty.slice(1) %>
+            </p>
+            <p>
+              <strong>Patient ID:</strong> <%= randomId(5) %>
+            </p>
+            <p>
+              <strong>Fallback Link:</strong>
+              <a href="<%= consultation.roomUrl %>" target="_blank">Fallback Link</a>
+            </p>
+            <form method="POST" action="/doctor/consultation/<%= consultation.id %>/accept" class="d-inline">
+              <button type="submit" class="btn btn-primary">Accept Consultation</button>
+            </form>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="text-center">No pending consultations.</p>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+
